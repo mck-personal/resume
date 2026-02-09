@@ -5,57 +5,71 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mandanna C K | SRE Manager</title>
   <meta name="description" content="Mandanna C K - Site Reliability Engineering Manager | Cloud Infrastructure | DevOps | Automation" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0b1220; --card:#0f1b33; --text:#e6edf3; --muted:#9fb1c5;
-      --accent:#7aa2f7; --accent2:#2dd4bf; --border:#21314f;
-      --chip:#14264a; --link:#9cc4ff;
+      --bg:#ffffff; --card:#ffffff; --text:#000000; --muted:#000000;
+      --accent:#2563eb; --accent2:#0f766e; --border:#dfe6f0;
+      --chip:#f2f5fb; --link:#000000;
+      --gloss:none;
     }
-    @media (prefers-color-scheme: light){
-      :root{--bg:#f7f9fc; --card:#ffffff; --text:#0b1220; --muted:#44566c;
-      --accent:#2563eb; --accent2:#0f766e; --border:#e5eaf2; --chip:#eef4ff; --link:#1d4ed8;}
+    [data-theme="dark"]{
+          --bg:#000000; --card:#0a0a0a; --text:#ffffff; --muted:#b8c2cf;
+          --accent:#7aa2f7; --accent2:#2dd4bf; --border:#1d2533;
+          --chip:#121418; --link:#c7dcff;
+          --gloss:none;
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(122,162,247,.18), transparent 60%),
-                  radial-gradient(900px 500px at 80% 10%, rgba(45,212,191,.14), transparent 55%),
-                  var(--bg);
-      color:var(--text); line-height:1.55;
+      margin:0; font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color:var(--text); line-height:1.55; font-size:13px;
     }
     a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:980px; margin:40px auto; padding:0 18px 60px}
     header{
       display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start; justify-content:space-between;
-      padding:22px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      padding:22px; background:var(--bg);
       border:1px solid var(--border); border-radius:16px;
     }
-    .name{font-size:32px; margin:0}
+    .theme-toggle{
+      position:fixed; top:16px; right:16px; z-index:10;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--card); color:var(--text);
+      font-size:13px; cursor:pointer;
+      box-shadow:0 8px 24px rgba(0,0,0,.08);
+    }
+    .theme-toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+    .name{font-size:32px; margin:0; color:#1d4ed8; background:#e6f0ff; display:inline-block; padding:6px 10px; border-radius:8px}
     .role{margin:6px 0 0; color:var(--muted)}
-    .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .meta{display:flex; flex-direction:column; gap:10px; margin-top:12px}
     .pill{
       display:inline-flex; gap:8px; align-items:center;
-      border:1px solid var(--border); background:rgba(0,0,0,.08);
+      border:1px solid var(--border); background:var(--bg);
       padding:8px 10px; border-radius:999px; font-size:14px; color:var(--muted)
     }
     .pill strong{color:var(--text); font-weight:600}
-    .grid{display:grid; grid-template-columns: 1fr; gap:14px; margin-top:18px}
-    @media(min-width:860px){ .grid{grid-template-columns: 1.35fr .65fr} }
+    .grid{display:grid; grid-template-columns: 1fr; gap:14px; margin-top:0}
     section{
-      background:rgba(0,0,0,.08);
+      background:var(--bg);
       border:1px solid var(--border);
       border-radius:16px; padding:18px 18px 14px;
     }
-    h2{margin:0 0 10px; font-size:18px; letter-spacing:.2px}
-    h3{margin:14px 0 6px; font-size:16px}
+    h2{margin:0 0 10px; font-size:18px; letter-spacing:.2px; color:var(--accent)}
+    h3{margin:14px 0 6px; font-size:16px; font-weight:400}
     .muted{color:var(--muted)}
+    .summary{color:var(--text)}
     ul{margin:8px 0 0 18px}
     li{margin:6px 0}
     .chips{display:flex; flex-wrap:wrap; gap:8px}
     .chip{
       font-size:13px; padding:6px 10px; border-radius:999px;
-      background:var(--chip); border:1px solid var(--border);
+      background:var(--bg); border:1px solid var(--border);
       color:var(--text)
     }
     .job{display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap}
@@ -63,7 +77,7 @@
     .kpi{display:grid; gap:10px}
     .kpi .item{
       padding:10px 12px; border:1px dashed var(--border); border-radius:14px;
-      background:rgba(255,255,255,.03)
+      background:var(--bg)
     }
     footer{margin-top:18px; text-align:center; color:var(--muted); font-size:13px}
     .btnrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
@@ -80,44 +94,57 @@
 </head>
 
 <body>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+    Dark mode
+  </button>
   <div class="wrap">
     <header>
       <div>
-        <h1 class="name">Mandanna C K</h1>
-        <p class="role"><strong>Site Reliability Engineering Manager</strong> • Cloud Services • Member of Technical Staff (M3)</p>
+        <h1 class="name">Mandanna Chettira Kushalappa</h1>
+        <p class="role">Site Reliability Engineering Manager • Cloud Services • Member of Technical Staff (M3)</p>
 
         <div class="meta">
-          <div class="pill"><strong>Phone:</strong> +91 9900019599</div>
-          <div class="pill"><strong>Email:</strong> <a href="mailto:chettira.mandanna24@gmail.com">chettira.mandanna24@gmail.com</a></div>
-          <div class="pill"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mandannack/" target="_blank" rel="noreferrer">mandannack</a></div>
-          <div class="pill"><strong>Location:</strong> Bengaluru, India</div>
+          <div class="pill"><span>Phone:</span> +91 9900019599</div>
+          <div class="pill"><span>Email:</span> <a href="mailto:chettira.mandanna24@gmail.com">chettira.mandanna24@gmail.com</a></div>
+          <div class="pill"><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/mandannack/" target="_blank" rel="noreferrer">mandannack</a></div>
+          <div class="pill"><span>Location:</span> Bengaluru, India</div>
         </div>
 
-        <div class="btnrow">
-          <a class="btn primary" href="https://www.linkedin.com/in/mandannack/" target="_blank" rel="noreferrer">View LinkedIn</a>
-          <a class="btn" href="mailto:chettira.mandanna24@gmail.com">Contact</a>
-        </div>
       </div>
 
-      <div class="muted" style="max-width:360px">
-        <strong>Focus Areas</strong>
-        <div class="chips" style="margin-top:10px">
-          <span class="chip">SRE Leadership</span>
-          <span class="chip">Cloud & Hybrid Infra</span>
-          <span class="chip">Automation</span>
-          <span class="chip">Reliability & Ops Excellence</span>
-          <span class="chip">Incident Management</span>
-          <span class="chip">Infrastructure as Code</span>
-        </div>
-      </div>
+      <div class="muted" style="max-width:360px"></div>
     </header>
+
+    <section style="margin-top:14px">
+      <h2>Skills</h2>
+      <div class="chips">
+        <span class="chip">SRE Leadership</span>
+        <span class="chip">Cloud & Hybrid Infra</span>
+        <span class="chip">Automation</span>
+        <span class="chip">Reliability & Ops Excellence</span>
+        <span class="chip">Incident Management</span>
+        <span class="chip">Infrastructure as Code</span>
+        <span class="chip">Strategic Leadership in SRE</span>
+        <span class="chip">Cloud Native System Design & Ops</span>
+        <span class="chip">Datacenter Migration</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Jenkins</span>
+        <span class="chip">Ansible</span>
+        <span class="chip">Windows</span>
+        <span class="chip">Linux</span>
+        <span class="chip">Certified Scrum Master</span>
+        <span class="chip">Technical Mentorship</span>
+        <span class="chip">Coaching</span>
+        <span class="chip">Performance Management</span>
+      </div>
+    </section>
 
     <div class="grid">
       <!-- Left column -->
       <div>
         <section>
           <h2>Summary</h2>
-          <p class="muted">
+          <p class="summary">
             Experienced IT professional with 13+ years of expertise in Site Reliability Engineering (SRE), Cloud Infrastructure
             Management, Automation, and People Leadership, excelling in building resilient, cloud-native, web-scale systems and
             driving operational excellence. Proven ability to lead and scale diverse teams, manage large-scale incidents, and
@@ -129,12 +156,12 @@
           </p>
         </section>
 
-        <section style="margin-top:14px">
+        <section>
           <h2>Experience</h2>
 
           <h3>Omnissa (previously VMware Inc)</h3>
           <div class="job">
-            <strong>Manager, Site Reliability Engineering / Member of Technical Staff (M3)</strong>
+            <span>Manager, Site Reliability Engineering / Member of Technical Staff (M3)</span>
             <span>08/2018 – Present • Bangalore, India</span>
           </div>
           <ul>
@@ -155,7 +182,7 @@
 
           <h3>Cisco Systems Pvt Ltd (Contract via Randstad / Adecco)</h3>
           <div class="job">
-            <strong>SaaS Operations Engineer / System Engineer</strong>
+            <span>SaaS Operations Engineer / System Engineer</span>
             <span>05/2015 – 05/2017 • Bangalore, India</span>
           </div>
           <ul>
@@ -169,7 +196,7 @@
 
           <h3>NTT DATA (Project: Morgan Stanley)</h3>
           <div class="job">
-            <strong>Linux System Administrator / Technical Executive</strong>
+            <span>Linux System Administrator / Technical Executive</span>
             <span>08/2014 – 02/2017 • Bangalore, India</span>
           </div>
           <ul>
@@ -183,66 +210,47 @@
         </section>
       </div>
 
-      <!-- Right column -->
-      <div>
-        <section>
-          <h2>Skills</h2>
-          <div class="chips">
-            <span class="chip">Strategic Leadership in SRE</span>
-            <span class="chip">Cloud Native System Design & Ops</span>
-            <span class="chip">Datacenter Migration</span>
-            <span class="chip">Infrastructure as Code</span>
-            <span class="chip">Kubernetes</span>
-            <span class="chip">Jenkins</span>
-            <span class="chip">Ansible</span>
-            <span class="chip">Windows</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Certified Scrum Master</span>
-            <span class="chip">Technical Mentorship</span>
-            <span class="chip">Coaching</span>
-            <span class="chip">Performance Management</span>
+    </div>
+
+    <div>
+      <section>
+        <h2>Key Achievements</h2>
+        <div class="kpi">
+          <div class="item">
+            <span>Zero Downtime Deployment Strategy</span>
+            <div class="muted">Designed and implemented a zero-downtime deployment strategy adopted company-wide, enabling 100% availability during updates.</div>
           </div>
-        </section>
-
-        <section style="margin-top:14px">
-          <h2>Key Achievements</h2>
-          <div class="kpi">
-            <div class="item">
-              <strong>Zero Downtime Deployment Strategy</strong>
-              <div class="muted">Designed and implemented a zero-downtime deployment strategy adopted company-wide, enabling 100% availability during updates.</div>
-            </div>
-            <div class="item">
-              <strong>Security Vulnerabilities Reduction</strong>
-              <div class="muted">Led initiatives to reduce vulnerabilities via proactive patching, compliance enforcement, and automated remediation.</div>
-            </div>
-            <div class="item">
-              <strong>Automated Cloud Datacenter Migrations</strong>
-              <div class="muted">Designed and implemented end-to-end automated cloud datacenter migrations, ensuring minimal downtime and seamless transitions.</div>
-            </div>
-            <div class="item">
-              <strong>End-to-End Automated OS Patching</strong>
-              <div class="muted">Implemented fully automated OS patching for efficient, seamless updates across environments.</div>
-            </div>
+          <div class="item">
+            <span>Security Vulnerabilities Reduction</span>
+            <div class="muted">Led initiatives to reduce vulnerabilities via proactive patching, compliance enforcement, and automated remediation.</div>
           </div>
-        </section>
+          <div class="item">
+            <span>Automated Cloud Datacenter Migrations</span>
+            <div class="muted">Designed and implemented end-to-end automated cloud datacenter migrations, ensuring minimal downtime and seamless transitions.</div>
+          </div>
+          <div class="item">
+            <span>End-to-End Automated OS Patching</span>
+            <div class="muted">Implemented fully automated OS patching for efficient, seamless updates across environments.</div>
+          </div>
+        </div>
+      </section>
 
-        <section style="margin-top:14px">
-          <h2>Education</h2>
-          <h3 style="margin-top:0">Master of Computer Applications</h3>
-          <div class="muted">Sikkim Manipal University • Gangtok, India • 01/2012 – 01/2014</div>
+      <section>
+        <h2>Education</h2>
+        <h3 style="margin-top:0">Master of Computer Applications</h3>
+        <div class="muted">Sikkim Manipal University • Gangtok, India • 01/2012 – 01/2014</div>
 
-          <h3>Bachelor of Computer Applications</h3>
-          <div class="muted">Mangalore University • Mangalore, India • 01/2008 – 01/2012</div>
-        </section>
+        <h3>Bachelor of Computer Applications</h3>
+        <div class="muted">Mangalore University • Mangalore, India • 01/2008 – 01/2012</div>
+      </section>
 
-        <section style="margin-top:14px">
-          <h2>Certifications & Courses</h2>
-          <ul>
-            <li><strong>Certified Scrum Master (CSM)</strong></li>
-            <li><strong>Leadership Principles</strong> — 6-week online certificate program from Harvard Business School Online.</li>
-          </ul>
-        </section>
-      </div>
+      <section>
+        <h2>Certifications & Courses</h2>
+        <ul>
+          <li>Certified Scrum Master (CSM)</li>
+          <li>Leadership Principles — 6-week online certificate program from Harvard Business School Online.</li>
+        </ul>
+      </section>
     </div>
 
     <footer>
@@ -251,6 +259,29 @@
   </div>
 
   <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById("themeToggle");
+    const storedTheme = localStorage.getItem("theme");
+
+    if (storedTheme) {
+      root.setAttribute("data-theme", storedTheme);
+    }
+
+    const updateToggle = () => {
+      const isDark = root.getAttribute("data-theme") === "dark";
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.textContent = isDark ? "Light mode" : "Dark mode";
+    };
+
+    updateToggle();
+
+    toggle.addEventListener("click", () => {
+      const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("theme", nextTheme);
+      updateToggle();
+    });
+
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
