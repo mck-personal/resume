@@ -5,3 +5,5 @@ Key features to add:
 - Update skill set
 - Experience summary and timeline
 - website links
+- change theme to light/dark
+- Attach a picture
