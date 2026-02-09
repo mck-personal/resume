@@ -1,4 +1,4 @@
-Resume:
+Resume can be accessed via - https://mck-personal.github.io/resume
 
 Key features to add:
 - Updated summary
